@@ -27,7 +27,7 @@ namespace SearchRecentCorrection
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        int counFindFile; // количество найденых файлов
         string archive_folder; // папка с Архивом 
         string result_folder; // куда сохранять результат поиска ? 
         string template_for_find; // шаблон для поиска до парсинга
@@ -63,13 +63,14 @@ namespace SearchRecentCorrection
                 parse_templates();
                 Find();
                 write();
-                Label_result_find.Text = "Найдено файлов: " + result_name_list.Count;
+                Label_result_find.Text = "Найдено файлов: " + counFindFile;
             }
 
          
 
             templates_for_find.Clear();
             result_name_list.Clear();
+            counFindFile = 0;
             BT_Find.IsEnabled = true; // разблокируем кнопку после процесса 
         }
 
@@ -135,7 +136,8 @@ namespace SearchRecentCorrection
 
                     foreach (var template_name in templates_for_find) {
                         if (file_name.Contains(template_name)) {
-                            result_name_list.Add(dir + "\\"+ files.Name);
+                            result_name_list.Add("\n"+dir + "\\"+ files.Name);
+                            counFindFile = counFindFile + 1;
                             open_archive_contents(dir + "\\" + files.Name);
                         }
                             }

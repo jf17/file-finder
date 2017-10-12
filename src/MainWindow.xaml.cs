@@ -56,18 +56,34 @@ namespace SearchRecentCorrection
             BT_Find.IsEnabled = false; // пока идёт процесс , блокируем кнопку 
 
 
+            if (archive_folder!="" && result_folder != "" && TB_templates.Text != "") {
+                parse_templates();
+                Find();
+                write();
+                Label_result_find.Text = "Найдено файлов: " + result_name_list.Count;
+            }
 
-            parse_templates();
-            Find();
-
-            int sdfsdf = 0;
-
-            Label_result_find.Text = "Найдено файлов: " + result_name_list.Count;
+         
 
             templates_for_find.Clear();
             result_name_list.Clear();
             BT_Find.IsEnabled = true; // разблокируем кнопку после процесса 
         }
+
+
+        private void write() { 
+
+         
+
+        string not_need_files = result_folder+"\\result_folder.txt";
+
+           
+            StreamWriter fileNOT = new System.IO.StreamWriter(not_need_files);
+
+                foreach (var fullname in result_name_list)
+                    fileNOT.WriteLine(fullname);
+                fileNOT.Close();
+            }
 
 
         private void parse_templates() {
@@ -107,7 +123,7 @@ namespace SearchRecentCorrection
                     string file_name =files.Name ;
 
                     foreach (var template_name in templates_for_find) {
-                        if (template_name == file_name) {
+                        if (file_name.Contains(template_name)) {
                             result_name_list.Add(dir + "\\"+ files.Name);
                         }
                             }

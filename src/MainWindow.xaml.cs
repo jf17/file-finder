@@ -110,10 +110,11 @@ namespace SearchRecentCorrection
 
 
         private void open_archive_contents(string dir)
-        {
+        { // only Framework 4.5 
             using (ZipArchive zip = ZipFile.Open(dir, ZipArchiveMode.Read))
                 foreach (ZipArchiveEntry entry in zip.Entries)
-                    result_name_list.Add(entry.Name);
+                    result_name_list.Add(entry.Name + "   || LastWriteTime:  " + entry.LastWriteTime);
+                    
         }
 
         private void Find() {

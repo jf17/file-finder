@@ -12,10 +12,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.IO.Compression;
 
 
 // create project: 12.10.2017
 // need add ref System.Windows.Forms !!!!
+// need add ref System.IO.Compression !!!!
+// need add ref System.IO.Compression.FileSystem !!!!
 
 namespace SearchRecentCorrection
 {
@@ -104,6 +107,14 @@ namespace SearchRecentCorrection
 
         }
 
+
+        private void open_archive_contents(string dir)
+        {
+            using (ZipArchive zip = ZipFile.Open(dir, ZipArchiveMode.Read))
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                    result_name_list.Add(entry.Name);
+        }
+
         private void Find() {
 
 
@@ -125,6 +136,7 @@ namespace SearchRecentCorrection
                     foreach (var template_name in templates_for_find) {
                         if (file_name.Contains(template_name)) {
                             result_name_list.Add(dir + "\\"+ files.Name);
+                            open_archive_contents(dir + "\\" + files.Name);
                         }
                             }
 

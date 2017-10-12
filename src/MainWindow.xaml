@@ -13,7 +13,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="10,69,0,0" TextWrapping="Wrap" Text="Куда сохранять результат ?" VerticalAlignment="Top" RenderTransformOrigin="0.036,-0.595"/>
         <Button x:Name="BT_result_folder" Content="Открыть" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="75" Click="BT_result_folder_Click"/>
         <TextBlock x:Name="Label_result" HorizontalAlignment="Left" Margin="90,93,0,0" TextWrapping="Wrap" Text="C:\результат" VerticalAlignment="Top" RenderTransformOrigin="0.155,0.393" Width="417"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,162,0,0" TextWrapping="Wrap" Text="Шаблон поиска (чрез пробел) :" VerticalAlignment="Top" RenderTransformOrigin="-0.065,0.51"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,162,0,0" TextWrapping="Wrap" Text="Шаблон поиска (через пробел) :" VerticalAlignment="Top" RenderTransformOrigin="-0.065,0.51"/>
         <TextBox x:Name="TB_templates" HorizontalAlignment="Left" Height="81" Margin="10,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497"/>
         <Button x:Name="BT_Find" Content="Поиск" HorizontalAlignment="Left" Margin="10,269,0,0" VerticalAlignment="Top" Width="75" Click="BT_Find_Click"/>
         <TextBlock x:Name="Label_result_find" HorizontalAlignment="Left" Margin="109,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="400"/>

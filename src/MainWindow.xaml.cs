@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.IO.Compression;
+using System.Diagnostics;
 
 
 // create project: 12.10.2017
@@ -87,7 +88,10 @@ namespace SearchRecentCorrection
                 foreach (var fullname in result_name_list)
                     fileNOT.WriteLine(fullname);
                 fileNOT.Close();
-            }
+
+
+            Process.Start(result_folder);
+        }
 
 
         private void parse_templates() {

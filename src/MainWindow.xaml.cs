@@ -64,10 +64,14 @@ namespace SearchRecentCorrection
 
 
             if (archive_folder!="" && result_folder != "" && TB_templates.Text != "") {
-                parse_templates();
-                Find();
-                write();
-                Label_result_find.Text = "Найдено файлов: " + counFindFile;
+                if (Directory.Exists(archive_folder) && Directory.Exists(result_folder)) {
+                    parse_templates();
+                    Find();
+                    write();
+                    Label_result_find.Text = "Найдено файлов: " + counFindFile;
+                } else if (!Directory.Exists(archive_folder)) { MessageBox.Show("Папка архива не найдена !"); }
+                else if (!Directory.Exists(result_folder)) { MessageBox.Show("Директория сохранения результата не найдена !"); }
+
             }
 
          

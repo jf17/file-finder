@@ -39,6 +39,9 @@ namespace SearchRecentCorrection
 
         public MainWindow()
         {
+            archive_folder = @"D:\АРХИВ";
+            result_folder = @"C:\temp\";
+
             InitializeComponent();
             result_name_list = new List<string>();
         }
